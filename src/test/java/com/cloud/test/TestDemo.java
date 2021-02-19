@@ -1,6 +1,6 @@
-package com.jinxin.test;
+package com.cloud.test;
 
-import com.jinxin.minitest.MiniTest;
+import com.cloud.minitest.MiniTest;
 import org.junit.Test;
 
 import java.util.List;

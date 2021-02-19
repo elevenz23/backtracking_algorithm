@@ -1,4 +1,4 @@
-package com.jinxin.minitest;
+package com.cloud.minitest;
 
 import java.util.ArrayList;
 import java.util.List;
