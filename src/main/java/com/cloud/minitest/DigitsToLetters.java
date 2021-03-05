@@ -1,6 +1,8 @@
 package com.cloud.minitest;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author eleven
@@ -11,25 +13,17 @@ import java.util.*;
  **/
 public class DigitsToLetters {
     public void digitsToLetters(String digits) {
-        //Number and letter mapping data are stored in Map
-        Map<String, Object> map = new HashMap<>();
-        map.put("0", Collections.singletonList(""));
-        map.put("1", Collections.singletonList(""));
-        map.put("2",Arrays.asList("A","B","C"));
-        map.put("3",Arrays.asList("D","E","F"));
-        map.put("4",Arrays.asList("G","H","I"));
-        map.put("5",Arrays.asList("J","K","L"));
-        map.put("6",Arrays.asList("M","N","O"));
-        map.put("7",Arrays.asList("P","Q","R","S"));
-        map.put("8",Arrays.asList("T","U","V"));
-        map.put("9",Arrays.asList("W","X","Y","Z"));
+
+        Digits digit = new Digits();
+        Map<String, Object> map = digit.digits();
+
         //Create and format an array of strings that store user input
         StringBuilder inputArr = new StringBuilder("Input:arr[] ={");
         //Separate
         String[] arrStr = digits.split("");
 
+        List<String[]> letterList = new ArrayList<>();
         //Add traversal to inputArr
-        List<String[]> dataList = new ArrayList<>();
         for(int i = 0;i<arrStr.length;i++){
             //Concatenated string
             inputArr.append(arrStr[i]);
@@ -42,7 +36,7 @@ public class DigitsToLetters {
             //Operate only if there is data
             if(lettersList.size() > 0){
                 String[] letterArr = (String[]) lettersList.toArray();
-                dataList.add(letterArr);
+                letterList.add(letterArr);
             }
         }
         //Splicing format
@@ -50,9 +44,10 @@ public class DigitsToLetters {
         LetterCombination letters = new LetterCombination();
 
         //Recursion
-        List<String[]> resultList = letters.letterCombination(dataList,0,null);
+        List<String[]> resultList = letters.letterCombination(letterList,0,null);
 
         System.out.println(inputArr.toString());
+
         System.out.print("Output:");
         //Iterate over the results
         for (String[] letterArr : resultList) {

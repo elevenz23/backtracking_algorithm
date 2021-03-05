@@ -8,20 +8,14 @@ package com.cloud.minitest;
  * @create: 2021-03-04 21:06
  **/
 public class NumberToLetter {
-    public String numberToLetter(int digits) {
+    public String numberToLetter(int num) {
         //When the number is less than 0, return
-        if (digits <= 0) {
+        if (num < 0) {
             return null;
         }
         StringBuilder letter = new StringBuilder();
-        digits--;
-        do {
-            if (letter.length() > 0) {
-                digits--;
-            }
-            letter.insert(0, (char) (digits % 26 + 'A'));
-            digits = (digits - digits % 26)/26;
-        } while (digits > 0);
+        //Calculate the number corresponding to the letter, and then convert it into a letter (A when num is 0)
+        letter.insert(0, (char) (num % 26 + 'A'));
         return letter.toString();
     }
 }
